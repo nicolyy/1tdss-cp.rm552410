@@ -39,7 +39,7 @@ while True:
             users[email] = name
             save_users_to_csv("users.csv", users)
             print(f"{name} added successfully!")
-            print("Please, click 6 to save your informations")
+            print("PLEASE, PRESS 6 TO SAVE YOUR INFORMATIONS")
                        
 
     elif choice == "2":
