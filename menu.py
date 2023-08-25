@@ -1,4 +1,19 @@
-users = {}
+
+#Professor, não consegui fazer com que ele salvasse os dados no arquivo csv automaticamente,
+#sem que ele aperte o 6 após a inserção dos dados.
+
+
+
+
+#importando biblioteca csv
+#Aqui eu estou importando os def do arquivo csv.py
+from csv import  load_users_from_csv, save_users_to_csv
+
+#users = {}
+
+
+#carregar usuários do arquivo csv
+users = load_users_from_csv("users.csv")
 
 while True:
     print("\nUser Manager:")
@@ -7,8 +22,12 @@ while True:
     print("3. List all users")
     print("4. Search user by email")
     print("5. Exit")
+    print(".....................................")
+    print("6. Save users to csv")
+    print(".....................................")
     
-    choice = "5"
+    choice = str(input("Digite sua opção: "))
+    #choice = "5"
 
     if choice == "1":
         name = input("Enter name: ")
@@ -18,7 +37,10 @@ while True:
             print("User with this email already exists.")
         else:
             users[email] = name
+            save_users_to_csv("users.csv", users)
             print(f"{name} added successfully!")
+            print("Please, click 6 to save your informations")
+                       
 
     elif choice == "2":
         email = input("Enter email to remove: ")
@@ -47,3 +69,10 @@ while True:
     elif choice == "5":
         print("Goodbye!")
         break
+    elif choice == "6":
+        save_users_to_csv("users.csv", users)
+        print("Thanks, your informations are safe!")
+        
+        
+    
+        
